@@ -2,7 +2,19 @@ zendAlbum
 =========
 Olá a todos, este eh o projeto do zend Album com o crud de Albums funcionando baseado nos exemplos da wed usando um banco SQLite.
 
-Para verificar seu funcionamento, depois de baixar para seu computador e configurar o ambiente, usando seu navegador entre em:
+Para Intalar/ Instruction for Install
+
+Entre no repositorio que foi feito o download do git e
+execute o comando:
+
+php composer.phar self-update
+
+depois, execute o comando:
+
+php composer.phar install
+
+
+Para verificar seu funcionamento, depois de configurar o ambiente, usando seu navegador entre em:
 
 http://zendalbum/
 
