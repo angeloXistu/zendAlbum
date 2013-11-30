@@ -15,5 +15,8 @@ echo $this->form()->openTag($form);
 echo $this->formHidden($form->get('id'));
 echo $this->formRow($form->get('nome'));
 echo $this->formRow($form->get('telefone'));
+echo $this->formRow($form->get('login'));
+echo $this->formRow($form->get('senha'));
+echo $this->formRow($form->get('casa'));
 echo $this->formSubmit($form->get('submit'));
 echo $this->form()->closeTag();

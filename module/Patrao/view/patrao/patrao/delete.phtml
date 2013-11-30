@@ -11,6 +11,9 @@ $this->headTitle($nome);
 <p>Are you sure that you want to delete
     '<?php echo $this->escapeHtml($patrao->nome); ?>' by
     '<?php echo $this->escapeHtml($patrao->telefone); ?>'?
+    '<?php echo $this->escapeHtml($patrao->login); ?>'?
+    '<?php echo $this->escapeHtml($patrao->senha); ?>'?
+    '<?php echo $this->escapeHtml($patrao->casa); ?>'?
 </p>
 <?php
 $url = $this->url('patrao', array(

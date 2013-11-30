@@ -22,7 +22,7 @@ class PatraoForm extends Form
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Artist',
+                'label' => 'Nome',
             ),
         ));
         $this->add(array(
@@ -31,8 +31,35 @@ class PatraoForm extends Form
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Title',
+                'label' => 'Telefone',
             ),
+        ));
+        $this->add(array(
+        		'name' => 'login',
+        		'attributes' => array(
+        				'type'  => 'text',
+        		),
+        		'options' => array(
+        				'label' => 'Login',
+        		),
+        ));
+        $this->add(array(
+        		'name' => 'senha',
+        		'attributes' => array(
+        				'type'  => 'text',
+        		),
+        		'options' => array(
+        				'label' => 'Senha',
+        		),
+        ));
+        $this->add(array(
+        		'name' => 'casa',
+        		'attributes' => array(
+        				'type'  => 'text',
+        		),
+        		'options' => array(
+        				'label' => 'Casa',
+        		),
         ));
         $this->add(array(
             'name' => 'submit',
