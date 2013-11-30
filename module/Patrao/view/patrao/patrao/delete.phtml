@@ -1,0 +1,27 @@
+<h1>The view script delete.phtml</h1>
+
+<?php
+// module/Album/view/patrao/patrao/delete.phtml:
+
+$nome = 'Delete patrao';
+$this->headTitle($nome);
+?>
+<h1><?php echo $this->escapeHtml($nome); ?></h1>
+
+<p>Are you sure that you want to delete
+    '<?php echo $this->escapeHtml($patrao->nome); ?>' by
+    '<?php echo $this->escapeHtml($patrao->telefone); ?>'?
+</p>
+<?php
+$url = $this->url('patrao', array(
+    'action' => 'delete',
+    'id' => $this->id,
+));
+?>
+<form action="<?php echo $url; ?>" method="post">
+<div>
+    <input type="hidden" name="id" value="<?php echo (int) $patrao->id; ?>" />
+    <input type="submit" name="del" value="Yes" />
+    <input type="submit" name="del" value="No" />
+</div>
+</form>

@@ -1,0 +1,27 @@
+<h1>The view script edit.phtml</h1>
+
+<?php
+// module/Album/view/patrao/patrao/edit.phtml:
+
+$nome = 'Edit patrao';
+$this->headTitle($nome);
+?>
+<h1><?php echo $this->escapeHtml($nome); ?></h1>
+
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url(
+    'patrao',
+    array(
+        'action' => 'edit',
+        'id' => $this->id,
+    )
+));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('nome'));
+echo $this->formRow($form->get('telefone'));
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
