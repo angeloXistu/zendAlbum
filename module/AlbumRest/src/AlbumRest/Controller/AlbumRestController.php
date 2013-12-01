@@ -39,9 +39,15 @@ class AlbumRestController extends AbstractRestfulController
     {
         $album = $this->getAlbumTable()->getAlbum($id);
         
-        return array(
-            "data" => $album
-        );
+        //return array(
+          //  "data" => $album
+        //);
+        
+        $teste = array();
+        $teste[] = $album;
+        $result = new \Zend\View\Model\JsonModel($teste);
+
+        return $result;
     }
 
     public function create($data)
