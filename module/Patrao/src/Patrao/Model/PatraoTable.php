@@ -28,6 +28,20 @@ class PatraoTable
 		}
 		return $row;
 	}
+	
+	/*
+	 * Funcao que recebe por parametro o login do sugeito e retorna os dados dele.
+	 */
+	public function getPatraoByLogin($login)
+	{
+		//$id  = (int) $id;
+		$rowset = $this->tableGateway->select(array('login' => $login));
+		$row = $rowset->current();
+		if (!$row) {
+			throw new \Exception("Could not find row $login");
+		}
+		return $row;
+	}
 
 	public function savePatrao(Patrao $patrao)
 	{

@@ -6,6 +6,7 @@ return array(
         'AlbumRest',
         'Album',
     		'Patrao',
+    		'PatraoRest',
     		
     ),
 
