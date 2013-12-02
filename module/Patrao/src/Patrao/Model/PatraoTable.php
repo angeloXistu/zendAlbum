@@ -50,7 +50,8 @@ class PatraoTable
 				'telefone'  => $patrao->telefone,
 				'login'  => $patrao->login,
 				'senha'  => $patrao->senha,
-				'casa'  => $patrao->casa,
+				'latitude'  => $patrao->latitude,
+				'longitude' => $patrao->longitude,
 		);
 
 		$id = (int)$patrao->id;

@@ -53,13 +53,22 @@ class PatraoForm extends Form
         		),
         ));
         $this->add(array(
-        		'name' => 'casa',
-        		'attributes' => array(
-        				'type'  => 'text',
-        		),
-        		'options' => array(
-        				'label' => 'Casa',
-        		),
+                'name' => 'latitude',
+                'attributes' => array(
+                        'type'  => 'text',
+                ),
+                'options' => array(
+                        'label' => 'Latitude',
+                ),
+        ));
+        $this->add(array(
+                'name' => 'longitude',
+                'attributes' => array(
+                        'type'  => 'text',
+                ),
+                'options' => array(
+                        'label' => 'Longitude',
+                ),
         ));
         $this->add(array(
             'name' => 'submit',

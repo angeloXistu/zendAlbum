@@ -86,7 +86,6 @@ class PatraoController extends AbstractActionController
         );
     }
 
-
     public function deleteAction()
     {
         $id = (int) $this->params()->fromRoute('id', 0);
@@ -113,5 +112,4 @@ class PatraoController extends AbstractActionController
             'patrao' => $this->getPatraoTable()->getPatrao($id)
         );
     }
-
 }

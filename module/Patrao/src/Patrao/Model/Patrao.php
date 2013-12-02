@@ -13,7 +13,8 @@ class Patrao //implements InputFilterAwareInterface
     public $telefone;
     public $login;
     public $senha;
-    public $casa;
+    public $longitude;
+    public $latitude;
     protected $inputFilter; // <-- Add this variable
 
     public function exchangeArray($data)
@@ -23,7 +24,8 @@ class Patrao //implements InputFilterAwareInterface
         $this->telefone = (isset($data['telefone'])) ? $data['telefone'] : null;
         $this->login = (isset($data['login'])) ? $data['login'] : null;
         $this->senha = (isset($data['senha'])) ? $data['senha'] : null;
-        $this->casa = (isset($data['casa'])) ? $data['casa'] : null;
+        $this->longitude = (isset($data['longitude'])) ? $data['longitude'] : null;
+        $this->latitude = (isset($data['latitude'])) ? $data['latitude'] : null;
     }
   
     // Add the following method:
