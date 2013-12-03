@@ -1,0 +1,36 @@
+<?php
+
+
+$title = 'Empregado (application)';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('empregado', array('action'=>'add'));?>">Add new empregado</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Nome</th>
+    <th>Telefone</th>
+    <th>Login</th>
+    <th>Senha</th>
+    <th>Patrão</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($empregados as $empregado) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($empregado->nome);?></td>
+    <td><?php echo $this->escapeHtml($empregado->telefone);?></td>
+    <td><?php echo $this->escapeHtml($empregado->login);?></td>
+    <td><?php echo $this->escapeHtml($empregado->senha);?></td>
+    <td><?php echo $this->escapeHtml($empregado->loginp);?></td>
+    <td>
+        <a href="<?php echo $this->url('empregado',
+            array('action'=>'edit', 'id' => $empregado->id));?>">Edit</a>
+        <a href="<?php echo $this->url('empregado',
+            array('action'=>'delete', 'id' => $empregado->id));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

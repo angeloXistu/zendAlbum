@@ -5,8 +5,9 @@ return array(
         'Application',
         'AlbumRest',
         'Album',
-    		'Patrao',
-    		'PatraoRest',
+        'Empregado',
+        'Patrao',
+        'PatraoRest',
     		
     ),
 

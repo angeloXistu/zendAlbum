@@ -1,0 +1,22 @@
+<h1>The view script add.phtml</h1>
+<?php
+// module/Album/view/empregado/empregado/add.phtml:
+
+$title = 'Add new empregado';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('empregado', array('action' => 'add')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('nome'));
+echo $this->formRow($form->get('telefone'));
+echo $this->formRow($form->get('login'));
+echo $this->formRow($form->get('senha'));
+echo $this->formRow($form->get('loginp'));
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();

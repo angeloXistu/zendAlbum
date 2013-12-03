@@ -2,22 +2,22 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Patrao\Controller\Patrao' => 'Patrao\Controller\PatraoController',
+            'Empregado\Controller\Empregado' => 'Empregado\Controller\EmpregadoController',
         ),
     ),
     // The following section is new and should be added to your file
     'router' => array(
         'routes' => array(
-            'patrao' => array(
+            'empregado' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/patrao[/:action][/:id]',
+                    'route'    => '/empregado[/:action][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Patrao\Controller\Patrao',
+                        'controller' => 'Empregado\Controller\Empregado',
                         'action'     => 'index',
                     ),
                 ),
@@ -27,7 +27,7 @@ return array(
 
     'view_manager' => array(
         'template_path_stack' => array(
-            'patrao' => __DIR__ . '/../view',
+            'empregado' => __DIR__ . '/../view',
         ),
     ),
 );
