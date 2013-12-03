@@ -22,7 +22,7 @@ class EmpregadoForm extends Form
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Nome',
+                'label' => 'Nome:',
             ),
         ));
         $this->add(array(
@@ -31,7 +31,7 @@ class EmpregadoForm extends Form
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Telefone',
+                'label' => 'Telefone: ',
             ),
         ));
         $this->add(array(
@@ -40,7 +40,7 @@ class EmpregadoForm extends Form
         				'type'  => 'text',
         		),
         		'options' => array(
-        				'label' => 'Login',
+        				'label' => 'Login: ',
         		),
         ));
         $this->add(array(
@@ -49,7 +49,7 @@ class EmpregadoForm extends Form
         				'type'  => 'text',
         		),
         		'options' => array(
-        				'label' => 'Senha',
+        				'label' => 'Senha: ',
         		),
         ));
         $this->add(array(
@@ -58,7 +58,7 @@ class EmpregadoForm extends Form
                         'type'  => 'text',
                 ),
                 'options' => array(
-                        'label' => 'Login Patrão',
+                        'label' => 'Login Patrão: ',
                 ),
         ));
         $this->add(array(

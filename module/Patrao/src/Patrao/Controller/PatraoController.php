@@ -112,4 +112,5 @@ class PatraoController extends AbstractActionController
             'patrao' => $this->getPatraoTable()->getPatrao($id)
         );
     }
+    
 }
