@@ -1,7 +1,7 @@
 <?php
 
 
-$title = 'Empregado (application)';
+$title = 'Empregado';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
@@ -29,9 +29,9 @@ $this->headTitle($title);
     <td><?php echo $this->escapeHtml($empregado->cargo);?></td>
     <td>
         <a href="<?php echo $this->url('empregado',
-            array('action'=>'edit', 'id' => $empregado->id));?>">Edit</a>
+            array('action'=>'edit', 'id' => $empregado->id));?>" class="btn btn-primary btn-mini edit-row">Edit</a>
         <a href="<?php echo $this->url('empregado',
-            array('action'=>'delete', 'id' => $empregado->id));?>">Delete</a>
+            array('action'=>'delete', 'id' => $empregado->id));?>" class="btn btn-primary btn-mini edit-row">Delete</a>
     </td>
 </tr>
 <?php endforeach; ?>
