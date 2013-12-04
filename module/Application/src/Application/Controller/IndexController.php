@@ -14,35 +14,35 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
-	protected $albumTable;
+	protected $patraoTable;
 	
-	public function getAlbumTable(){
-		if (!$this->albumTable) {
+	public function getPatraoTable(){
+		if (!$this->patraoTable) {
 			$sm = $this->getServiceLocator();
-			$this->albumTable = $sm->get('Album\Model\AlbumTable');
+			$this->patraoTable = $sm->get('Patrao\Model\PatraoTable');
 		}
-		return $this->albumTable;
+		return $this->patraoTable;
 	}
 	
     public function indexAction(){
         return new ViewModel(array(
-            'albums' => $this->getAlbumTable()->fetchAll(),
+            'patraos' => $this->getPatraoTable()->fetchAll(),
         ));
     }
     
     public function editAction(){
     	return new ViewModel(array(
-    			'albums' => $this->getAlbumTable()->fetchAll(),
+    			'patraos' => $this->getPatraoTable()->fetchAll(),
     	));
     }
     public function deleteAction(){
     	return new ViewModel(array(
-    			'albums' => $this->getAlbumTable()->fetchAll(),
+    			'patraos' => $this->getPatraoTable()->fetchAll(),
     	));
     }
     public function addAction(){
     	return new ViewModel(array(
-    			'albums' => $this->getAlbumTable()->fetchAll(),
+    			'patraos' => $this->getPatraoTable()->fetchAll(),
     	));
     }
 }

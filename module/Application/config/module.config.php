@@ -9,7 +9,7 @@
 return array(
     'router' => array(
         'routes' => array(
-            'album' => array(
+            'login' => array(
                 'type' => 'segment',
                 'options' => array(
                     'route' => '/index[/][:action][/:id]',
@@ -23,10 +23,10 @@ return array(
                     )
                 )
             ),
-            'album' => array(
+            'login' => array(
             		'type'    => 'Literal',
             		'options' => array(
-            				'route'    => '/album[/:action][/:id]',
+            				'route'    => '/login[/:action][/:id]',
             				'constraints' => array(
             						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
             						'id'     => '[0-9]+',
