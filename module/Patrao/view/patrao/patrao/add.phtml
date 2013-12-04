@@ -17,6 +17,7 @@ echo $this->formRow($form->get('nome'));
 echo $this->formRow($form->get('telefone'));
 echo $this->formRow($form->get('login'));
 echo $this->formRow($form->get('senha'));
-echo $this->formRow($form->get('casa'));
 echo $this->formSubmit($form->get('submit'));
+echo $this->formHidden($form->get('longitude'));
+echo $this->formHidden($form->get('latitude'));
 echo $this->form()->closeTag();

@@ -16,7 +16,8 @@ $this->headTitle($title);
     <th>Login</th>
     <th>Senha</th>
     <th>Patrão</th>
-    <th>&nbsp;</th>
+    <th>Cargo</th>
+    <th>Opções</th>
 </tr>
 <?php foreach ($empregados as $empregado) : ?>
 <tr>
@@ -25,6 +26,7 @@ $this->headTitle($title);
     <td><?php echo $this->escapeHtml($empregado->login);?></td>
     <td><?php echo $this->escapeHtml($empregado->senha);?></td>
     <td><?php echo $this->escapeHtml($empregado->loginp);?></td>
+    <td><?php echo $this->escapeHtml($empregado->cargo);?></td>
     <td>
         <a href="<?php echo $this->url('empregado',
             array('action'=>'edit', 'id' => $empregado->id));?>">Edit</a>

@@ -51,6 +51,7 @@ class EmpregadoTable
 				'login'  => $empregado->login,
 				'senha'  => $empregado->senha,
 				'loginp'  => $empregado->loginp,
+                                'cargo' => $empregado->cargo,
 		);
 
 		$id = (int)$empregado->id;

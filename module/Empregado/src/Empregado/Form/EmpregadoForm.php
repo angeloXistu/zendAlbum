@@ -62,6 +62,15 @@ class EmpregadoForm extends Form
                 ),
         ));
         $this->add(array(
+                'name' => 'cargo',
+                'attributes' => array(
+                        'type'  => 'text',
+                ),
+                'options' => array(
+                        'label' => 'Cargo: ',
+                ),
+        ));
+        $this->add(array(
             'name' => 'submit',
             'attributes' => array(
                 'type'  => 'submit',

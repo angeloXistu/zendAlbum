@@ -19,12 +19,13 @@ $form->setAttribute('action', $this->url(
 ));
 $form->prepare();
 
-echo $this->form()->openTag($form);
-echo $this->formHidden($form->get('id'));
-echo $this->formRow($form->get('nome'));
-echo $this->formRow($form->get('telefone'));
-echo $this->formRow($form->get('login'));
-echo $this->formRow($form->get('senha'));
-echo $this->formRow($form->get('casa'));
-echo $this->formSubmit($form->get('submit'));
+echo $this->form()->openTag($form)."</br>";
+echo $this->formHidden($form->get('id'))."</br>";
+echo $this->formRow($form->get('nome'))."</br>";
+echo $this->formRow($form->get('telefone'))."</br>";
+echo $this->formRow($form->get('senha'))."</br>";
+echo $this->formSubmit($form->get('submit'))."</br>";
+echo $this->formHidden($form->get('longitude'))."</br>";
+echo $this->formHidden($form->get('latitude'))."</br>";
+echo $this->formHidden($form->get('login'))."</br>";
 echo $this->form()->closeTag();

@@ -14,6 +14,7 @@ class Empregado //implements InputFilterAwareInterface
     public $login;
     public $senha;
     public $loginp;
+    public $cargo;
     protected $inputFilter; // <-- Add this variable
 
     public function exchangeArray($data)
@@ -23,6 +24,7 @@ class Empregado //implements InputFilterAwareInterface
         $this->telefone = (isset($data['telefone'])) ? $data['telefone'] : null;
         $this->login = (isset($data['login'])) ? $data['login'] : null;
         $this->senha = (isset($data['senha'])) ? $data['senha'] : null;
+        $this->cargo = (isset($data['cargo'])) ? $data['cargo'] : null;
         $this->loginp = (isset($data['loginp'])) ? $data['loginp'] : null;
     }
   
