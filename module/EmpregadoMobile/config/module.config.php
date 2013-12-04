@@ -2,18 +2,18 @@
 return array (
 		'controllers' => array (
 				'invokables' => array (
-						'EmpregadoRest\Controller\EmpregadoRest' => 'EmpregadoRest\Controller\EmpregadoRestController',
+                                                'EmpregadoMobile\Controller\EmpregadoMobile' => 'EmpregadoMobile\Controller\EmpregadoMobileController'
 				) 
 		),
 		// The following section is new and should be added to your file
 		'router' => array (
 				'routes' => array (
-						'empregado-rest' => array (
+						'empregado-mobile' => array (
 								'type' => 'segment',
 								'options' => array (
-										'route' => '/empregado-rest[/:id]',
+										'route' => '/empregado-mobile[/:id]',
 										'defaults' => array (
-												'controller' => 'EmpregadoRest\Controller\EmpregadoRest' 
+												'controller' => 'EmpregadoMobile\Controller\EmpregadoMobile' 
 										) 
 								),
                                                     ),
