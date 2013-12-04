@@ -1,5 +1,5 @@
 <?php
-namespace EmpregadoMobile\Controller;
+namespace PatraoMobile\Controller;
 
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Empregado\Model\Empregado;
@@ -8,8 +8,9 @@ use Empregado\Model\EmpregadoTable;
 use Zend\View\Model\JsonModel;
 use Patrao\Model\PatraoTable;
 use Patrao\Model\Patrao;
+use Patrao\Form\PatraoForm;
 
-class EmpregadoMobileController extends AbstractRestfulController
+class PatraoMobileController extends AbstractRestfulController
 {
 
     protected $empregadoTable;
@@ -35,7 +36,7 @@ class EmpregadoMobileController extends AbstractRestfulController
 
     public function getList()
     {
-        $results = $this->getEmpregadoTable()->fetchAll();
+        $results = $this->getPatraoTable()->fetchAll();
         $data = array();
         foreach ($results as $result) {
             $data[] = $result;
@@ -65,43 +66,35 @@ class EmpregadoMobileController extends AbstractRestfulController
     
     public function get($login)
     {
-    	$empregado = $this->getEmpregadoTable()->getEmpregadoByLogin($login);
+    	$patrao = $this->getPatraoTable()->getPatraoByLogin($login);
     
-        if(isset($_GET['patrao'])){
-            $loginp = $_GET['patrao'];
-            $existe = $this->getPatraoTable()->getPatraoByLogin($loginp);
-            if(strcmp($existe->login, $loginp) == 0){
-                $empregado->loginp = $loginp;
-                $this->getEmpregadoTable()->saveEmpregado($empregado);                
-            }
+        if(isset($_GET['long'])){
+            $long = $_GET['long'];
+            $lat = $_GET['lat'];
+            $patrao->longitude = $long;
+            $patrao->latitude = $lat;
+            $this->getPatraoTable()->savePatrao($patrao);
         }
     	//return array(
-    	//  "data" => $empregado
+    	//  "data" => $patrao
     	//);
     
     	$teste = array();
-    	$teste[] = $empregado;
-        
-        if(isset($_GET['findAll'])){
-            $patrao = $_GET['findAll'];
-            $emps = $this->getEmpregadoTable()->getEmpregadoByLoginp($patrao);
-            $teste[] = $emps;
-        }
-        
-        $result = new \Zend\View\Model\JsonModel($teste);
-        
+    	$teste[] = $patrao;
+    	$result = new \Zend\View\Model\JsonModel($teste);
+    
     	return $result;
     }
 
     public function create($data)
     {
-        $form = new EmpregadoForm();
-        $empregado = new Empregado();
-        $form->setInputFilter($empregado->getInputFilter());
+        $form = new PatraoForm();
+        $patrao = new Patrao();
+        $form->setInputFilter($patrao->getInputFilter());
         $form->setData($data);
         if ($form->isValid()) {
-            $empregado->exchangeArray($form->getData());
-            $id = $this->getEmpregadoTable()->saveEmpregado($empregado);
+            $patrao->exchangeArray($form->getData());
+            $id = $this->getPatraoTable()->savePatrao($patrao);
         }
         
         return new JsonModel(array(
@@ -112,13 +105,13 @@ class EmpregadoMobileController extends AbstractRestfulController
     public function update($id, $data)
     {
         $data['id'] = $id;
-        $empregado = $this->getEmpregadoTable()->getEmpregado($id);
-        $form = new EmpregadoForm();
-        $form->bind($empregado);
-        $form->setInputFilter($empregado->getInputFilter());
+        $patrao = $this->getPatraoTable()->getPatrao($id);
+        $form = new PatraoForm();
+        $form->bind($patrao);
+        $form->setInputFilter($patrao->getInputFilter());
         $form->setData($data);
         if ($form->isValid()) {
-            $id = $this->getEmpregadoTable()->saveEmpregado($form->getData());
+            $id = $this->getPatraoTable()->savePatrao($form->getData());
         }
         
         return new JsonModel(array(
@@ -128,7 +121,7 @@ class EmpregadoMobileController extends AbstractRestfulController
 
     public function delete($id)
     {
-        $this->getEmpregadoTable()->deleteEmpregado($id);
+        $this->getPatraoTable()->deletePatrao($id);
         
         return new JsonModel(array(
             'data' => 'deleted'

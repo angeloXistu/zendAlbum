@@ -7,6 +7,7 @@ return array(
         'EmpregadoMobile',
         'EmpregadoRest',
         'Patrao',
+        'PatraoMobile',
         'PatraoRest',
     		
     ),

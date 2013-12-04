@@ -42,6 +42,17 @@ class EmpregadoTable
 		}
 		return $row;
 	}
+        
+        public function getEmpregadoByLoginp($loginp)
+	{
+		//$id  = (int) $id;
+		$rowset = $this->tableGateway->select(array('loginp' => $loginp));
+		$row = $rowset->current();
+		if (!$row) {
+			throw new \Exception("Could not find row $loginp");
+		}
+		return $row;
+	}
 
 	public function saveEmpregado(Empregado $empregado)
 	{
