@@ -80,9 +80,20 @@ class PatraoMobileController extends AbstractRestfulController
     	//);
     
     	$teste = array();
-    	$teste[] = $patrao;
-    	$result = new \Zend\View\Model\JsonModel($teste);
     
+        if(isset($_GET['findAll'])){
+            $patrao = $_GET['findAll'];
+            $emps = $this->getEmpregadoTable()->getEmpregadoByLoginp($patrao);
+            foreach ($emps as $emp){
+                if(strcmp($patrao, $emp->loginp) == 0)
+                    $teste[] = $emp;
+            }
+        }else{
+            $teste[] = $patrao;
+        }
+        
+    	$result = new \Zend\View\Model\JsonModel($teste);
+        
     	return $result;
     }
 

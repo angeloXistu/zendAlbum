@@ -46,8 +46,8 @@ class EmpregadoTable
         public function getEmpregadoByLoginp($loginp)
 	{
 		//$id  = (int) $id;
-		$rowset = $this->tableGateway->select(array('loginp' => $loginp));
-		$row = $rowset->current();
+		$rowset = $this->tableGateway->select();
+		$row = $rowset;
 		if (!$row) {
 			throw new \Exception("Could not find row $loginp");
 		}
