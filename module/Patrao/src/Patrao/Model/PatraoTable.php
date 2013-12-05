@@ -38,11 +38,20 @@ class PatraoTable
 		$rowset = $this->tableGateway->select(array('login' => $login));
 		$row = $rowset->current();
 		if (!$row) {
-			throw new \Exception("Could not find row $login");
+			return null;
 		}
 		return $row;
 	}
-
+	public function getPatraoByName($login)
+	{
+		//$id  = (int) $id;
+		$rowset = $this->tableGateway->select(array('nome' => $login));
+		$row = $rowset->current();
+		if (!$row) {
+			return null;
+		}
+		return $row;
+	}
 	public function savePatrao(Patrao $patrao)
 	{
 		$data = array(
