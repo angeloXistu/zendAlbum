@@ -14,35 +14,6 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
-	protected $patraoTable;
-	
-	public function getPatraoTable(){
-		if (!$this->patraoTable) {
-			$sm = $this->getServiceLocator();
-			$this->patraoTable = $sm->get('Patrao\Model\PatraoTable');
-		}
-		return $this->patraoTable;
-	}
-	
-    public function indexAction(){
-        return new ViewModel(array(
-            'patraos' => $this->getPatraoTable()->fetchAll(),
-        ));
-    }
-    
-    public function editAction(){
-    	return new ViewModel(array(
-    			'patraos' => $this->getPatraoTable()->fetchAll(),
-    	));
-    }
-    public function deleteAction(){
-    	return new ViewModel(array(
-    			'patraos' => $this->getPatraoTable()->fetchAll(),
-    	));
-    }
-    public function addAction(){
-    	return new ViewModel(array(
-    			'patraos' => $this->getPatraoTable()->fetchAll(),
-    	));
+    public function painelAction(){
     }
 }

@@ -9,31 +9,17 @@
 return array(
     'router' => array(
         'routes' => array(
-            'login' => array(
-                'type' => 'segment',
-                'options' => array(
-                    'route' => '/index[/][:action][/:id]',
-                    'constraints' => array(
-                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id' => '[0-9]+'
-                    ),
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
-                        'action' => 'index'
-                    )
-                )
-            ),
-            'login' => array(
+            'painel' => array(
             		'type'    => 'Literal',
             		'options' => array(
-            				'route'    => '/login[/:action][/:id]',
+            				'route'    => '/painel',
             				'constraints' => array(
             						'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
             						'id'     => '[0-9]+',
             				),
             				'defaults' => array(
-            						'controller' => 'Album\Controller\Album',
-            						'action'     => 'index',
+            						'controller' => 'Application\Controller\Index',
+            						'action'     => 'painel',
             
             				),
             		),
