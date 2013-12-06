@@ -11,8 +11,8 @@ class HorarioSearchForm extends Form {
 		$this->setAttribute ( 'class', 'form-horizontal' );
 		$this->setAttribute ( 'method', 'post' );
 		
-		$nome = new Element\Text ( 'loginFuncionario' );
-		$nome->setLabel ( 'loginFuncionario' )->setAttribute ( 'class', 'required' )->setAttribute ( 'placeholder', 'fk_funcionario' );
+		$nome = new Element\Text ( 'fk_funcionario' );
+		$nome->setLabel ( 'Procurar por login do Funcionario:' )->setAttribute ( 'class', 'required' )->setAttribute ( 'placeholder', 'Login do Funcionário	' );
 		$submit = new Element\Submit ( 'submit' );
 		$submit->setValue ( 'Search' )->setAttribute ( 'class', 'btn btn-primary' );
 		

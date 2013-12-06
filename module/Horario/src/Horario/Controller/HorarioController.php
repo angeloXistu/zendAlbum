@@ -20,7 +20,7 @@ class HorarioController extends AbstractActionController {
 		return $this->horarioTable;
 	}
 	public function indexAction() {
-		/*$searchform = new HorarioSearchForm ();
+		$searchform = new HorarioSearchForm ();
 		$searchform->get ( 'submit' )->setValue ( 'Search' );
 		
 		$select = new Select ();
@@ -35,16 +35,19 @@ class HorarioController extends AbstractActionController {
 		$formdata = array ();
 		// var_dump($search_by );
 		if (! empty ( $search_by )) {
+			//var_dump( $search_by );
 			$formdata = ( array ) json_decode ( $search_by );
-			if (! empty ( $formdata ['nome'] )) {
-				// var_dump($this->getHorarioTable ()->getHorarioByName ( $formdata ['nome']));
-				if ($this->getHorarioTable ()->getHorarioByName ( $formdata ['nome'] )) {
+			//var_dump($formdata);
+			if (! empty ( $formdata ['fk_funcionario'] )) {
+				//var_dump($formdata ['loginFuncionario'] );
+				//var_dump($this->getHorarioTable ()->getHorariosByLoginFuncionarioForWebSite ( $formdata ['fk_funcionario'] ));
+				if ($this->getHorarioTable ()->getHorariosByLoginFuncionarioForWebSite ( $formdata ['fk_funcionario'] )) {
 					return new ViewModel ( array (
 							'search_by' => $search_by,
 							'pageAction' => 'horario',
 							'form' => $searchform,
-							'horarios' => array (
-									$this->getHorarioTable ()->getHorarioByName ( $formdata ['nome'] ) 
+							'horarios' => 
+									$this->getHorarioTable ()->getHorariosByLoginFuncionarioForWebSite ( $formdata ['fk_funcionario']  
 							) 
 					) );
 				}
@@ -55,10 +58,10 @@ class HorarioController extends AbstractActionController {
 				'pageAction' => 'horario',
 				'form' => $searchform,
 				'horarios' => $this->getHorarioTable ()->fetchAll () 
-		) );*/
-		return new ViewModel(array(
-				'horarios' => $this->getHorarioTable()->fetchAll(),
-		));
+		) );
+		/*
+		 * return new ViewModel(array( 'horarios' => $this->getHorarioTable()->fetchAll(), ));
+		 */
 	}
 	public function searchAction() {
 		$request = $this->getRequest ();
@@ -90,12 +93,12 @@ class HorarioController extends AbstractActionController {
 		$request = $this->getRequest ();
 		if ($request->isPost ()) {
 			// - $horario = new Horario();
-			//$form->setInputFilter ( $horario->getInputFilter () );
-			$form->setData ( $request->getPost () );			
+			// $form->setInputFilter ( $horario->getInputFilter () );
+			$form->setData ( $request->getPost () );
 			if ($form->isValid ()) {
 				// - $horario->exchangeArray($form->getData());
 				$this->getHorarioTable ()->saveHorario ( $horario );
-				var_dump($horario);
+				var_dump ( $horario );
 				
 				// Redirect to list of horarios
 				return $this->redirect ()->toRoute ( 'horario' );
@@ -127,7 +130,7 @@ class HorarioController extends AbstractActionController {
 			if ($form->isValid ()) {
 				// - $this->getHorarioTable()->saveHorario($form->getData());
 				$this->getHorarioTable ()->saveHorario ( $horario ); // We have to deal with the object not data anymore
-				                                                  
+				                                                     
 				// Redirect to list of horarios
 				return $this->redirect ()->toRoute ( 'horario' );
 			}

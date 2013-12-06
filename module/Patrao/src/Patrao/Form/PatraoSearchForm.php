@@ -12,7 +12,7 @@ class PatraoSearchForm extends Form {
 		$this->setAttribute ( 'method', 'post' );
 		
 		$nome = new Element\Text ( 'nome' );
-		$nome->setLabel ( 'Nome' )->setAttribute ( 'class', 'required' )->setAttribute ( 'placeholder', 'Nome' );
+		$nome->setLabel ( 'Procurar por um Patrão Específico:' )->setAttribute ( 'class', 'required' )->setAttribute ( 'placeholder', 'Nome do patrão' );
 		$submit = new Element\Submit ( 'submit' );
 		$submit->setValue ( 'Search' )->setAttribute ( 'class', 'btn btn-primary' );
 		
