@@ -1,0 +1,26 @@
+<h1>The view script edit.phtml</h1>
+
+<?php
+// module/Album/view/funcionario/funcionario/edit.phtml:
+$nome = 'Edit funcionario';
+$this->headTitle ( $nome );
+?>
+<h1><?php echo $this->escapeHtml($nome); ?></h1>
+
+<?php
+$form = $this->form;
+$form->setAttribute ( 'action', $this->url ( 'horario', array (
+		'action' => 'edit',
+		'id' => $this->id 
+) ) );
+$form->prepare ();
+
+echo $this->form ()->openTag ( $form ) . "</br>";
+echo $this->formHidden ( $form->get ( 'id' ) ) . "</br>";
+echo $this->formRow ( $form->get ( 'entrada' ) ) . "</br>";
+echo $this->formRow ( $form->get ( 'saida' ) ) . "</br>";
+echo $this->formRow ( $form->get ( 'fk_patrao' ) ) . "</br>";
+echo $this->formRow ( $form->get ( 'fk_funcionario' ) ) . "</br>";
+echo $this->formRow ( $form->get ( 'data' ) ) . "</br>";
+echo $this->formSubmit ( $form->get ( 'submit' ) ) . "</br>";
+echo $this->form ()->closeTag ();

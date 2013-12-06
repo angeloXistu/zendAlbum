@@ -1,0 +1,30 @@
+<h1>The view script delete.phtml</h1>
+
+<?php
+// module/Album/view/horario/horario/delete.phtml:
+
+$nome = 'Delete horario';
+$this->headTitle($nome);
+?>
+<h1><?php echo $this->escapeHtml($nome); ?></h1>
+
+<p>Are you sure that you want to delete
+    '<?php echo $this->escapeHtml($horario->entrada); ?>' by
+    '<?php echo $this->escapeHtml($horario->saida); ?>'?
+    '<?php echo $this->escapeHtml($horario->fk_patrao); ?>'?
+    '<?php echo $this->escapeHtml($horario->fk_funcionario); ?>'?
+    '<?php echo $this->escapeHtml($horario->data); ?>'?
+</p>
+<?php
+$url = $this->url('horario', array(
+    'action' => 'delete',
+    'id' => $this->id,
+));
+?>
+<form action="<?php echo $url; ?>" method="post">
+<div>
+    <input type="hidden" name="id" value="<?php echo (int) $horario->id; ?>" />
+    <input type="submit" name="del" value="Yes" />
+    <input type="submit" name="del" value="No" />
+</div>
+</form>
