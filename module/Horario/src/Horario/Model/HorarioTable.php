@@ -2,6 +2,7 @@
 namespace Horario\Model;
 
 use Zend\Db\TableGateway\TableGateway;
+use Zend\View\Model\JsonModel;
 
 class HorarioTable
 {
@@ -34,31 +35,13 @@ class HorarioTable
 	 */
 	public function getHorariosByLoginFuncionario($login)
 	{
-		$rowset = $this->tableGateway->select(array('fk_funcionario' => $login));
-		//var_dump($rowset);
-		$row = $rowset->current();
-		//var_dump($rowset);
-		if (!$row) {
-			return null;
+		$rowset = $this->tableGateway->select(array('fk_funcionario' => $login));		
+		$records = array();
+		foreach ($rowset as $result){
+			$records[] = $result;
 		}
-		return $row;
-		/*
-		$sql = new Sql($this->adapter);
-		$select = $sql->select();
-		$select->from($this->table)
-		->join('album', 'tracks.album_id = album.id');
-		
-		$where = new  Where();
-		$where->equalTo('album_id', $id) ;
-		$select->where($where);
-		
-		//you can check your query by echo-ing :
-		// echo $select->getSqlString();
-		$statement = $sql->prepareStatementForSqlObject($select);
-		$result = $statement->execute();
-		
+		$result = new \Zend\View\Model\JsonModel ( $records );
 		return $result;
-		*/
 	}
 	public function getHorarioByLoginPatrao($login)
 	{
