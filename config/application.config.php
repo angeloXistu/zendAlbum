@@ -7,6 +7,8 @@ return array(
         'EmpregadoMobile',
         'EmpregadoRest',
         'Patrao',
+    		'Horario',
+    		'HorarioRest',
         'PatraoMobile',
         'PatraoRest',
     		

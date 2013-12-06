@@ -1,0 +1,22 @@
+<h1>The view script add.phtml</h1>
+<?php
+// module/Album/view/horario/horario/add.phtml:
+
+$title = 'Add new horario';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('horario', array('action' => 'add')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('entrada'));
+echo $this->formRow($form->get('saida'));
+echo $this->formRow($form->get('fk_patrao'));
+echo $this->formRow($form->get('fk_funcionario'));
+echo $this->formRow($form->get('data'));
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();

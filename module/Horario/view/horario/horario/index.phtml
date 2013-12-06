@@ -1,0 +1,37 @@
+<?php
+
+
+$title = 'Horário';
+$this->headTitle($title);
+?>
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('horario', array('action'=>'add'));?>">Add new horario</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>entrada</th>
+    <th>saida</th>
+    <th>fk_patrao</th>
+    <th>fk_funcionario</th>
+    <th>data</th>
+    <th>Opções</th>
+</tr>
+<?php foreach ($horarios as $horario) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($horario->entrada);?></td>
+    <td><?php echo $this->escapeHtml($horario->saida);?></td>
+    <td><?php echo $this->escapeHtml($horario->fk_patrao);?></td>
+    <td><?php echo $this->escapeHtml($horario->fk_funcionario);?></td>
+    <td><?php echo $this->escapeHtml($horario->data);?></td>
+    <td>
+        <a href="<?php echo $this->url('horario',
+            array('action'=>'edit', 'id' => $horario->id));?>" class="btn btn-primary btn-mini edit-row">Edit</a>
+        <a href="<?php echo $this->url('horario',
+            array('action'=>'delete', 'id' => $horario->id));?>" class="btn btn-primary btn-mini edit-row">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
