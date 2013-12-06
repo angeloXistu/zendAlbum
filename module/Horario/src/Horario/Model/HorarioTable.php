@@ -53,6 +53,16 @@ class HorarioTable
 		}
 		return $row;
 	}
+	public function getHorariosByLoginFuncionarioForWebSite($login)
+	{
+		//$id  = (int) $id;
+		$rowset = $this->tableGateway->select(array('fk_funcionario' => $login));
+		$records = array();
+		foreach ($rowset as $result){
+			$records[] = $result;
+		}
+		return $records;
+	}
 	public function saveHorario(Horario $horario)
 	{
 		$data = array(

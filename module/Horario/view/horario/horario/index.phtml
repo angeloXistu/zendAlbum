@@ -4,7 +4,33 @@
 $title = 'Horário';
 $this->headTitle($title);
 ?>
+<table>
+<?php
+$form  = $this->form;
+$form->setAttribute('action', $this->url('horario', array('action' => 'search')));
+$form->prepare();
 
+echo $this->form()->openTag($form);
+foreach ($form as $element) :
+    ?>
+    <div class="control-group <?php if ($this->formElementErrors($element)) echo "error" ?>">
+        <label class="control-label"><?php echo $element->getLabel() ?></label>
+        <div class="controls">
+            <?php
+            echo $this->formElement($element);
+            if ($this->formElementErrors($element)):
+                ?>
+                <span class="help-inline"><?php echo $this->formElementErrors($element); ?></span>
+                <?php
+            endif;
+            ?>
+        </div>
+    </div>
+    <?php
+endforeach;
+echo $this->form()->closeTag();
+?>
+</table>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <p>
     <a href="<?php echo $this->url('horario', array('action'=>'add'));?>">Add new horario</a>
@@ -12,11 +38,11 @@ $this->headTitle($title);
 
 <table class="table">
 <tr>
-    <th>entrada</th>
-    <th>saida</th>
-    <th>fk_patrao</th>
-    <th>fk_funcionario</th>
-    <th>data</th>
+    <th>Hora de Entrada</th>
+    <th>Hora de Saída</th>
+    <th>Patrão</th>
+    <th>Funcionario</th>
+    <th>Data</th>
     <th>Opções</th>
 </tr>
 <?php foreach ($horarios as $horario) : ?>
