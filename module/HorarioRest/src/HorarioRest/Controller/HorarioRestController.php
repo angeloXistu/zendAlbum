@@ -35,7 +35,38 @@ class HorarioRestController extends AbstractRestfulController {
 	public function get($login) {
 		$horarios = array ();
 		$horarios = $this->getHorarioTable ()->getHorariosByLoginFuncionario ( $login );
-		return $horarios;
+                
+                if(isset($_GET['hora_i'])){
+                    $horaAtualI = $_GET['hora_i'];
+                    $dataAtualI = $_GET['data_i'];
+                    $horaAtualF = $_GET['hora_f'];
+                    $patrao = $_GET['patrao'];
+                    
+                    
+                    
+     
+                    $horaSalva = end($horarios);
+                    if($horaSalva != null){
+                        $horaSalva->entrada = $horaAtualI;
+                        $horaSalva->saida = $horaAtualF;
+                        $horaSalva->data = $dataAtualI;
+                        
+                        $id = $this->getHorarioTable()->saveHorario($horaSalva);
+                        
+                    } else{
+                        $horaSalvaObj = new Horario();
+                        $horaSalvaObj->entrada = $horaAtualI;
+                        $horaSalvaObj->saida = $horaAtualF;
+                        $horaSalvaObj->data = $dataAtualI;
+                        $horaSalvaObj->fk_patrao = $patrao;
+                        $horaSalvaObj->fk_funcionario = $login;
+                        
+                        $id = $this->getHorarioTable()->saveHorario($horaSalvaObj);
+                    }
+                }
+                
+                $result = new \Zend\View\Model\JsonModel ( $horarios );
+		return $result;
 	}
 	public function create($data) {
 		$form = new HorarioForm ();

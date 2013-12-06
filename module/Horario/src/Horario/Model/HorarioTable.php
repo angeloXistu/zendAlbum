@@ -40,8 +40,8 @@ class HorarioTable
 		foreach ($rowset as $result){
 			$records[] = $result;
 		}
-		$result = new \Zend\View\Model\JsonModel ( $records );
-		return $result;
+                
+		return $records;
 	}
 	public function getHorarioByLoginPatrao($login)
 	{
